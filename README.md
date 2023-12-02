@@ -39,17 +39,17 @@ The mod adds different egyptian themed decorative blocks. To craft them you need
 - Engravings and Paintings Images:
     - Ankh;
     - Bird;
-    - Short Bolas Horns;                                                | What are these? The mod originally was inspired by the
-    - Long Bolas Horns:                                                 |   MTG plane "Amonkhet", so now there is a reference to 
-        - Bottom part of the Horns                                      |   Nicol Bolas!
-        - Intermediate part of the Horns                                |
-        - Extremity of the Horns                                        |
-        - The curve of the Horns, centrated                             |
-        - The curve of the Horns, a moved to the bottom of the face     |
-    - Slaves:                                                           |
-        - Slaves dragging a block;                                      |
-        - Slaves;                                                       |
-        - Slaves with a building;                                       |
+    - Short Bolas Horns;                                                
+    - Long Bolas Horns:                                                    
+        - Bottom part of the Horns                                       
+        - Intermediate part of the Horns                                
+        - Extremity of the Horns                                        
+        - The curve of the Horns, centrated                             
+        - The curve of the Horns, a moved to the bottom of the face     
+    - Slaves:                                                           
+        - Slaves dragging a block;                                      
+        - Slaves;                                                       
+        - Slaves with a building;                                       
     - Cactus;
     - Cat;
     - Crocodile;
