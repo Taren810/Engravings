@@ -4,7 +4,7 @@
 --
 -- It's normally disactivated, and instead the mod load the "engravings_hes.lua" file, that has only 5 different nodes.
 --
--- If you reactive this make sure to activate "writing_bench.lua" to be able to craft the nodes, they aren't normally in the creative inventory.
+-- If you reactivate this, make sure to activate "writing_bench.lua" to be able to craft the nodes, they aren't normally in the creative inventory.
 --
 -- !! You could add images but beware, with only 4 new images you will exceed the number of max nodes minetest can load: !!
 -- If you want to add a new image, put it in the textures and name it "engravings_he_*" where * is a unique name, then add that 

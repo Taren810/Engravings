@@ -6,6 +6,7 @@ local pr_LoadSubFiles = function()
 
 	local s_MOD_PATH = minetest.get_modpath('engravings')
     dofile(s_MOD_PATH .. '/files/engravings_a.lua')
+    dofile(s_MOD_PATH .. '/files/engravings_d.lua')
     dofile(s_MOD_PATH .. '/files/engravings_e.lua')
 	dofile(s_MOD_PATH .. '/files/engravings_p.lua')
     dofile(s_MOD_PATH .. '/files/engravings_hes.lua') -- You don't have to disactivate this if you active the complete version, it will automatically overwrite the registered nodes

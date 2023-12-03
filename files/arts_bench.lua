@@ -1,8 +1,8 @@
--- Writing Bench
+-- Arts Bench
 --
--- This file register the Writing Bench node, with it you can craft the Writings nodes.
+-- This file register the Arts Bench node, with it you can craft the Arts nodes.
 --
--- It doesn't automatically add images that you added in "engravings_he.lua".
+-- It doesn't automatically add images that you added in "engravings_a.lua".
 --
 
 local S = minetest.get_translator('engravings')
@@ -26,7 +26,7 @@ minetest.register_node("engravings:arts_bench", {
 		"list[context;input;0,0;1,1;]"..
 		"list[context;output;4,0;4,4;]"..
 		"image_button[0,1;2,2;engravings_a_visir.png;visir; ]"..
---      "image_button[2,1;2,2; ; ; ]"..
+		"image_button[2,1;2,2;engravings_a_boat.png;boat; ]"..
 --      "image_button[0,3;2,2; ; ; ]"..
 --      "image_button[2,3;2,2; ; ; ]"..
 		"list[current_player;main;0,5;8,4;]")
@@ -50,6 +50,17 @@ minetest.register_node("engravings:arts_bench", {
 			    	inv:remove_item("input", "default:sandstone_block 16")
                     for i=1, 16 do
 				        inv:add_item("output", "engravings:art_stone1_"..i)
+                    end
+                end
+			end
+		end
+
+		if fields ["boat"] then
+			if input == "default:sandstone_block" then
+                if input_quantity > 15 then
+			    	inv:remove_item("input", "default:sandstone_block 16")
+                    for i=1, 16 do
+				        inv:add_item("output", "engravings:art_stone2_"..i)
                     end
                 end
 			end

@@ -47,6 +47,7 @@ minetest.register_node("engravings:painting_bench", {
 --
 -- Painting Commands
 --
+
         if fields ["paint"] then
 		if dye == "engravings:palette" then
 	        if input == "engravings:deco_stone1" then
@@ -169,8 +170,144 @@ minetest.register_node("engravings:painting_bench", {
 				inv:remove_item("input", "engravings:deco_stone30")
 				inv:remove_item("dye", "engravings:palette")
 				inv:add_item("output", "engravings:decop_stone30")
+			elseif input == "engravings:deco_stone31" then
+				inv:remove_item("input", "engravings:deco_stone31")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:decop_stone31")
 				-- If you added new images both in the "engravings_e.lua" and in the "engravings_p.lua" you can add 
 				-- another of this "elseif then", scaling the number by 1 for each new image.
+			
+-- Arts Nodes 
+			elseif input == "engravings:art_stone1_1" then
+				inv:remove_item("input", "engravings:art_stone1_1")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_1")
+			elseif input == "engravings:art_stone1_2" then
+				inv:remove_item("input", "engravings:art_stone1_2")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_2")
+			elseif input == "engravings:art_stone1_3" then
+				inv:remove_item("input", "engravings:art_stone1_3")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_3")
+			elseif input == "engravings:art_stone1_4" then
+				inv:remove_item("input", "engravings:art_stone1_4")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_4")
+			elseif input == "engravings:art_stone1_5" then
+				inv:remove_item("input", "engravings:art_stone1_5")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_5")
+			elseif input == "engravings:art_stone1_6" then
+				inv:remove_item("input", "engravings:art_stone1_6")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_6")
+			elseif input == "engravings:art_stone1_7" then
+				inv:remove_item("input", "engravings:art_stone1_7")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_7")
+			elseif input == "engravings:art_stone1_8" then
+				inv:remove_item("input", "engravings:art_stone1_8")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_8")
+			elseif input == "engravings:art_stone1_9" then
+				inv:remove_item("input", "engravings:art_stone1_9")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_9")
+			elseif input == "engravings:art_stone1_10" then
+				inv:remove_item("input", "engravings:art_stone1_10")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_10")
+			elseif input == "engravings:art_stone1_11" then
+				inv:remove_item("input", "engravings:art_stone1_11")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_11")
+			elseif input == "engravings:art_stone1_12" then
+				inv:remove_item("input", "engravings:art_stone1_12")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_12")
+			elseif input == "engravings:art_stone1_13" then
+				inv:remove_item("input", "engravings:art_stone1_13")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_13")
+			elseif input == "engravings:art_stone1_14" then
+				inv:remove_item("input", "engravings:art_stone1_14")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_14")
+			elseif input == "engravings:art_stone1_15" then
+				inv:remove_item("input", "engravings:art_stone1_15")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_15")
+			elseif input == "engravings:art_stone1_16" then
+				inv:remove_item("input", "engravings:art_stone1_16")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone1_16")
+
+			elseif input == "engravings:art_stone2_1" then
+				inv:remove_item("input", "engravings:art_stone2_1")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_1")
+			elseif input == "engravings:art_stone2_2" then
+				inv:remove_item("input", "engravings:art_stone2_2")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_2")
+			elseif input == "engravings:art_stone2_3" then
+				inv:remove_item("input", "engravings:art_stone2_3")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_3")
+			elseif input == "engravings:art_stone2_4" then
+				inv:remove_item("input", "engravings:art_stone2_4")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_4")
+			elseif input == "engravings:art_stone2_5" then
+				inv:remove_item("input", "engravings:art_stone2_5")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_5")
+			elseif input == "engravings:art_stone2_6" then
+				inv:remove_item("input", "engravings:art_stone2_6")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_6")
+			elseif input == "engravings:art_stone2_7" then
+				inv:remove_item("input", "engravings:art_stone2_7")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_7")
+			elseif input == "engravings:art_stone2_8" then
+				inv:remove_item("input", "engravings:art_stone2_8")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_8")
+			elseif input == "engravings:art_stone2_9" then
+				inv:remove_item("input", "engravings:art_stone2_9")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_9")
+			elseif input == "engravings:art_stone2_10" then
+				inv:remove_item("input", "engravings:art_stone2_10")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_10")
+			elseif input == "engravings:art_stone2_11" then
+				inv:remove_item("input", "engravings:art_stone2_11")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_11")
+			elseif input == "engravings:art_stone2_12" then
+				inv:remove_item("input", "engravings:art_stone2_12")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_12")
+			elseif input == "engravings:art_stone2_13" then
+				inv:remove_item("input", "engravings:art_stone2_13")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_13")
+			elseif input == "engravings:art_stone2_14" then
+				inv:remove_item("input", "engravings:art_stone2_14")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_14")
+			elseif input == "engravings:art_stone2_15" then
+				inv:remove_item("input", "engravings:art_stone2_15")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_15")
+			elseif input == "engravings:art_stone2_16" then
+				inv:remove_item("input", "engravings:art_stone2_16")
+				inv:remove_item("dye", "engravings:palette")
+				inv:add_item("output", "engravings:artp_stone2_16")
+
 			end
 		end
 		end

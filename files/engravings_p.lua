@@ -12,14 +12,15 @@
 local S = minetest.get_translator('engravings')
 
 local img = {
-	"eye", "men", "women", "sun", "bolas_small", "bolas_conti1", "bolas_conti2", "bolas_conti3", "bolas_conti4", "bolas_conti5", "ankh", 
-	"scarab", "cactus", "cat", "crocodile",  "bird", "jackal", "snake", "papyrus", "sunmen", "button", "wingleft", "wingright", 
-	"wingscarab", "sunbird", "whip", "ankhmen", "slaveblock", "slave", "slavebuild" 
+	"eye", "men", "women", "sun", "bolas_small", "bolas_conti1", "bolas_conti2", "bolas_conti3", "bolas_conti4", "bolas_conti5", 
+	"ankh", "scarab", "cactus", "cat", "crocodile",  "bird", "jackal", "snake", "papyrus", "sunmen", "button", "wingleft", 
+	"wingright", "wingscarab", "sunbird", "whip", "ankhmen", "slaveblock", "slave", "slavebuild", "fish"
 }
 
 --
--- Sandstone Block
+-- Painted Engravings
 --
+
 local desc = {
 	S("Painted Sandstone Block with Eye Engraving"), S("Painted Sandstone Block with Men Engraving"), 
 	S("Painted Sandstone Block with Women Engraving"), S("Painted Sandstone Block with Sun Engraving"), 
@@ -33,9 +34,10 @@ local desc = {
 	S("Painted Sandstone Block with Papyrus Engraving"), S("Painted Sandstone Block with Men and Sun Engraving"), 
 	S("Painted Sandstone Block with Sun and Ankh Engraving"), S("Painted Sandstone Block with Left Wing Engraving"), 
 	S("Painted Sandstone Block with Right Wing Engraving"), S("Painted Sandstone Block with Winged Scarab Engraving"),	
-	S("Sandstone Block with Sun and Birds Engraving"), S("Sandstone Block with Whip and Staff Engraving"), 
-	S("Sandstone Block with Ankh and Men Engraving"), S("Sandstone Block with Slaves Engraving"), 
-	S("Sandstone Block with Slaves and Blocks Engraving"), S("Sandstone Block with Slaves and Buildings Engraving")
+	S("Painted Sandstone Block with Sun and Birds Engraving"), S("Painted Sandstone Block with Whip and Staff Engraving"), 
+	S("Painted Sandstone Block with Ankh and Men Engraving"), S("Painted Sandstone Block with Slaves Engraving"), 
+	S("Painted Sandstone Block with Slaves and Blocks Engraving"), S("Painted Sandstone Block with Slaves and Buildings Engraving"),
+	S("Painted Sandstone Block with Fish Engraving")
 }
 
 -- The name under which the nodes are registered end with a number based on the position of his image in the list "img"
@@ -52,6 +54,8 @@ for i=1, #img do
 		sounds = minetest.registered_nodes[basenode].sounds,
 	})
 end
+
+
 
 --[[
 --
@@ -199,3 +203,134 @@ for i=1, #img do
 	})
 end
 ]]
+
+--
+-- Painted Art
+--
+
+local img = {
+	"visir", "boat"
+}
+
+local desc = {
+    S("Painted Sandstone Block with Pharaon Engraving "), S("Painted Sandstone Block with Boat Engraving ")
+}
+
+
+for i=1, #img do
+	local sandstone_img, basenode
+		sandstone_img = "default_sandstone_block.png"
+		basenode = "default:sandstone_block"
+	minetest.register_node("engravings:artp_stone"..i.."_1", { 
+		description = desc[i].."1",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:0,0=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_2", { 
+		description = desc[i].."2",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-16,0=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_3", { 
+		description = desc[i].."3",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-32,0=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_4", { 
+		description = desc[i].."4",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-48,0=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_5", { 
+		description = desc[i].."5",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:0,-16=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_6", { 
+		description = desc[i].."6",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-16,-16=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_7", { 
+		description = desc[i].."7",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-32,-16=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_8", { 
+		description = desc[i].."8",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-48,-16=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_9", { 
+		description = desc[i].."9",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:0,-32=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_10", { 
+		description = desc[i].."10",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-16,-32=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_11", { 
+		description = desc[i].."11",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-32,-32=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_12", { 
+		description = desc[i].."12",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-48,-32=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_13", { 
+		description = desc[i].."13",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:0,-48=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_14", { 
+		description = desc[i].."14",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-16,-48=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_15", { 
+		description = desc[i].."15",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-32,-48=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+    minetest.register_node("engravings:artp_stone"..i.."_16", { 
+		description = desc[i].."16",
+		is_ground_content = false,
+		tiles = {sandstone_img, sandstone_img, sandstone_img.."^[combine:16x16:-48,-48=engravings_ap_"..img[i]..".png"},
+		groups = minetest.registered_nodes[basenode].groups,
+		sounds = minetest.registered_nodes[basenode].sounds,
+	})
+end

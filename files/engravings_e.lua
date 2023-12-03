@@ -13,14 +13,11 @@
 local S = minetest.get_translator('engravings')
 
 local img = {
-	"eye", "men", "women", "sun", "bolas_small", "bolas_conti1", "bolas_conti2", "bolas_conti3", "bolas_conti4", "bolas_conti5", "ankh", 
-	"scarab", "cactus", "cat", "crocodile",  "bird", "jackal", "snake", "papyrus", "sunmen", "button", "wingleft", "wingright", 
-	"wingscarab", "sunbird", "whip", "ankhmen", "slaveblock", "slave", "slavebuild" 
+	"eye", "men", "women", "sun", "bolas_small", "bolas_conti1", "bolas_conti2", "bolas_conti3", "bolas_conti4", "bolas_conti5", 
+	"ankh", "scarab", "cactus", "cat", "crocodile",  "bird", "jackal", "snake", "papyrus", "sunmen", "button", "wingleft", 
+	"wingright", "wingscarab", "sunbird", "whip", "ankhmen", "slaveblock", "slave", "slavebuild", "fish"
 }
 
---
--- Sandstone Block
---
 local desc = {
 	S("Sandstone Block with Eye Engraving"), S("Sandstone Block with Men Engraving"),  S("Sandstone Block with Women Engraving"),
 	S("Sandstone Block with Sun Engraving"), S("Sandstone Block with Bolas Horns Engraving"), 
@@ -36,7 +33,7 @@ local desc = {
 	S("Sandstone Block with Winged Scarab Engraving"), S("Sandstone Block with Sun and Birds Engraving"),
 	S("Sandstone Block with Whip and Staff Engraving"), S("Sandstone Block with Ankh and Men Engraving"),
 	S("Sandstone Block with Slaves Engraving"), S("Sandstone Block with Slaves and Blocks Engraving"),
-	S("Sandstone Block with Slaves and Buildings Engraving")
+	S("Sandstone Block with Slaves and Buildings Engraving"), S("Sandstone Block with Fish Engraving")
 }
 
 -- The name under which the nodes are registered end with a number based on the position of his image in the list "img"
@@ -53,6 +50,8 @@ for i=1, #img do
 		sounds = minetest.registered_nodes[basenode].sounds,
 	})
 end
+
+
 
 --[[
 --

@@ -21,7 +21,7 @@ minetest.register_node("engravings:engraving_bench", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
        	meta:set_string("infotext", "Engraving Bench")
-       	meta:set_string("formspec", "size[8,9]"..
+       	meta:set_string("formspec", "size[8,10]"..
 		"list[context;input;0,0;1,1;]"..
 		"list[context;output;0,1;1,1;]"..
 		"image_button[2,0;1,1;engravings_e_eye.png;eye; ]"..
@@ -54,8 +54,14 @@ minetest.register_node("engravings:engraving_bench", {
 		"image_button[5,4;1,1;engravings_e_slave.png;slave; ]"..
 		"image_button[6,4;1,1;engravings_e_slavebuild.png;slavebuild; ]"..
 		"image_button[7,4;1,1;engravings_e_bolas_conti1.png;bolas_conti1; ]"..
+		"image_button[2,5;1,1;engravings_e_fish.png;fish; ]"..
+--		"image_button[3,5;1,1; ; ; ]"..
+--		"image_button[4,5;1,1; ; ; ]"..
+--		"image_button[5,5;1,1; ; ; ]"..
+--		"image_button[6,5;1,1; ; ; ]"..
+--		"image_button[7,5;1,1; ; ; ]"..
 		"button[0,2;1,1;block;Block]"..
-		"list[current_player;main;0,5;8,4;]")
+		"list[current_player;main;0,6;8,4;]")
 		local inv = meta:get_inventory()
 		inv:set_size("input", 1)
 		inv:set_size("output", 1)
@@ -73,11 +79,37 @@ minetest.register_node("engravings:engraving_bench", {
 -- Engraving Commands
 --
 		if fields ["block"] then
-			if input == "default:sandstone" then
-				inv:remove_item("input", "default:sandstone")
-				inv:add_item("output", "default:sandstone_block")
+			for i=1, 31 do
+				if input == "default:sandstone" then
+					inv:remove_item("input", "default:sandstone")
+					inv:add_item("output", "default:sandstone_block")
+				elseif input == "engravings:deco_stone"..i then
+					inv:remove_item("input", "engravings:deco_stone"..i)
+					inv:add_item("output", "default:sandstone_block")
+				elseif input == "engravings:decod_stone"..i then
+					inv:remove_item("input", "engravings:decod_stone"..i)
+					inv:add_item("output", "engravings:deco_stone"..i)
+				elseif input == "engravings:decop_stone"..i then
+					inv:remove_item("input", "engravings:decop_stone"..i)
+					inv:add_item("output", "engravings:decod_stone"..i)
+				end
+			end
+			for i=1, 2 do
+				for o=1, 16 do
+					if input == "engravings:art_stone"..i.."_"..o then
+						inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+						inv:add_item("output", "default:sandstone_block")
+					elseif input == "engravings:artd_stone"..i.."_"..o then
+						inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
+						inv:add_item("output", "engravings:art_stone"..i.."_"..o)
+					elseif input == "engravings:artp_stone"..i.."_"..o then
+						inv:remove_item("input", "engravings:artp_stone"..i.."_"..o)
+						inv:add_item("output", "engravings:artd_stone"..i.."_"..o)
+					end
+				end				
 			end
 		end
+		
 
 		if fields ["eye"] then
 			if input == "default:sandstone_block" then
@@ -286,6 +318,13 @@ minetest.register_node("engravings:engraving_bench", {
 			if input == "default:sandstone_block" then
 				inv:remove_item("input", "default:sandstone_block")
 				inv:add_item("output", "engravings:deco_stone30")
+			end
+		end
+
+		if fields ["fish"] then
+			if input == "default:sandstone_block" then
+				inv:remove_item("input", "default:sandstone_block")
+				inv:add_item("output", "engravings:deco_stone31")
 			end
 		end
 
