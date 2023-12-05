@@ -74,258 +74,99 @@ minetest.register_node("engravings:engraving_bench", {
 		local input = instack:get_name()
 		local instack = inv:get_stack("output", 1)
 		local output = instack:get_name()
-
+		local img = {
+			"eye", "men", "women", "sun", "bolas_small", "bolas_conti1", "bolas_conti2", "bolas_conti3", "bolas_conti4", "bolas_conti5", 
+			"ankh", "scarab", "cactus", "cat", "crocodile",  "bird", "jackal", "snake", "papyrus", "sunmen", "button", "wingleft", 
+			"wingright", "wingscarab", "sunbird", "whip", "ankhmen", "slaveblock", "slave", "slavebuild", "fish"
+		}
 --
 -- Engraving Commands
 --
 		if fields ["block"] then
 			for i=1, 31 do
 				if input == "default:sandstone" then
-					inv:remove_item("input", "default:sandstone")
-					inv:add_item("output", "default:sandstone_block")
+					if inv:is_empty("output") then	
+						inv:remove_item("input", "default:sandstone")
+						inv:add_item("output", "default:sandstone_block")
+					elseif output == "default:sandstone_block" then
+						inv:remove_item("input", "default:sandstone")
+						inv:add_item("output", "default:sandstone_block")
+					end
 				elseif input == "engravings:deco_stone"..i then
-					inv:remove_item("input", "engravings:deco_stone"..i)
-					inv:add_item("output", "default:sandstone_block")
+					if inv:is_empty("output") then	
+						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:add_item("output", "default:sandstone_block")
+					elseif output == "default:sandstone_block" then
+						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:add_item("output", "default:sandstone_block")
+					end
 				elseif input == "engravings:decod_stone"..i then
-					inv:remove_item("input", "engravings:decod_stone"..i)
-					inv:add_item("output", "engravings:deco_stone"..i)
+					if inv:is_empty("output") then	
+						inv:remove_item("input", "engravings:decod_stone"..i)
+						inv:add_item("output", "engravings:deco_stone"..i)
+					elseif output == "engravings:deco_stone"..i then
+						inv:remove_item("input", "engravings:decod_stone"..i)
+						inv:add_item("output", "engravings:deco_stone"..i)
+					end
 				elseif input == "engravings:decop_stone"..i then
-					inv:remove_item("input", "engravings:decop_stone"..i)
-					inv:add_item("output", "engravings:decod_stone"..i)
+					if inv:is_empty("output") then
+						inv:remove_item("input", "engravings:decop_stone"..i)
+						inv:add_item("output", "engravings:decod_stone"..i)
+					elseif output == "engravings:decod_stone"..i then
+						inv:remove_item("input", "engravings:decop_stone"..i)
+						inv:add_item("output", "engravings:decod_stone"..i)
+					end
 				end
 			end
 			for i=1, 2 do
 				for o=1, 16 do
 					if input == "engravings:art_stone"..i.."_"..o then
-						inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
-						inv:add_item("output", "default:sandstone_block")
+						if inv:is_empty("output") then
+							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:add_item("output", "default:sandstone_block")
+						elseif output == "default:sandstone_block" then
+							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:add_item("output", "default:sandstone_block")
+						end
 					elseif input == "engravings:artd_stone"..i.."_"..o then
-						inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
-						inv:add_item("output", "engravings:art_stone"..i.."_"..o)
+						if inv:is_empty("output") then
+							inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
+							inv:add_item("output", "engravings:art_stone"..i.."_"..o)
+						elseif output == "engravings:art_stone"..i.."_"..o then
+							inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
+							inv:add_item("output", "engravings:art_stone"..i.."_"..o)
+						end
 					elseif input == "engravings:artp_stone"..i.."_"..o then
-						inv:remove_item("input", "engravings:artp_stone"..i.."_"..o)
-						inv:add_item("output", "engravings:artd_stone"..i.."_"..o)
+						if inv:is_empty("output") then
+							inv:remove_item("input", "engravings:artp_stone"..i.."_"..o)
+							inv:add_item("output", "engravings:artd_stone"..i.."_"..o)
+						elseif output == "engravings:artd_stone"..i.."_"..o then
+							inv:remove_item("input", "engravings:artp_stone"..i.."_"..o)
+							inv:add_item("output", "engravings:artd_stone"..i.."_"..o)
+						end
 					end
 				end				
 			end
 		end
 		
-
-		if fields ["eye"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone1")
+		for i=1, 31 do
+			if fields [img[i]] then
+				if input == "default:sandstone_block" then
+					if inv:is_empty("output") then	
+						inv:remove_item("input", "default:sandstone_block")
+						inv:add_item("output", "engravings:deco_stone"..i)
+					elseif output == "engravings:deco_stone"..i then
+						inv:remove_item("input", "default:sandstone_block")
+						inv:add_item("output", "engravings:deco_stone"..i)
+					end
+				end
 			end
 		end
 
-		if fields ["men"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone2")
-			end
-		end
-
-		if fields ["women"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone3")
-			end
-		end
-
-		if fields ["sun"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone4")
-			end
-		end
-
-		if fields ["bolas_small"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone5")
-			end
-		end
-
-		if fields ["bolas_conti1"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone6")
-			end
-		end
-
-		if fields ["bolas_conti2"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone7")
-			end
-		end
-
-		if fields ["bolas_conti3"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone8")
-			end
-		end
-
-		if fields ["bolas_conti4"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone9")
-			end
-		end
-
-		if fields ["bolas_conti5"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone10")
-			end
-		end
-
-		if fields ["ankh"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone11")
-			end
-		end
-	
-		if fields ["scarab"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone12")
-			end
-		end
-
-		if fields ["cactus"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone13")
-			end
-		end
-
-		if fields ["cat"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone14")
-			end
-		end
-	
-		if fields ["crocodile"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone15")
-			end
-		end
-
-		if fields ["bird"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone16")
-			end
-		end
-
-		if fields ["jackal"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone17")
-			end
-		end
-
-		if fields ["snake"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone18")
-			end
-		end
-
-		if fields ["papyrus"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone19")
-			end
-		end
-
-		if fields ["sunmen"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone20")
-			end
-		end
-
-		if fields ["button"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone21")
-			end
-		end
-
-		if fields ["wingleft"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone22")
-			end
-		end
-
-		if fields ["wingright"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone23")
-			end
-		end
-
-		if fields ["wingscarab"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone24")
-			end
-		end
-
-		if fields ["sunbird"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone25")
-			end
-		end
-
-		if fields ["whip"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone26")
-			end
-		end
-
-		if fields ["ankhmen"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone27")
-			end
-		end
-
-		if fields ["slaveblock"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone28")
-			end
-		end
-
-		if fields ["slave"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone29")
-			end
-		end
-
-		if fields ["slavebuild"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone30")
-			end
-		end
-
-		if fields ["fish"] then
-			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:deco_stone31")
-			end
+		local function can_dig(pos, player)
+			local meta = minetest.get_meta(pos);
+			local inv = meta:get_inventory()
+			return inv:is_empty("input") and inv:is_empty("output")
 		end
 
 	end,

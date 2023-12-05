@@ -1,0 +1,5 @@
+[engravings]
+
+enable_writings (Enable all the Writings nodes) bool false
+
+add_writings_inventory (Add all the Writings nodes in the creative inventory, work only if enable_writings is true) bool false

@@ -2,7 +2,7 @@
 --
 -- This file register the Arts Bench node, with it you can craft the Arts nodes.
 --
--- It doesn't automatically add images that you added in "engravings_a.lua".
+-- It doesn't automatically add new images.
 --
 
 local S = minetest.get_translator('engravings')
@@ -47,10 +47,12 @@ minetest.register_node("engravings:arts_bench", {
 		if fields ["visir"] then
 			if input == "default:sandstone_block" then
                 if input_quantity > 15 then
-			    	inv:remove_item("input", "default:sandstone_block 16")
-                    for i=1, 16 do
-				        inv:add_item("output", "engravings:art_stone1_"..i)
-                    end
+					if inv:is_empty("output") then	
+						inv:remove_item("input", "default:sandstone_block 16")
+                  	  	for i=1, 16 do
+				    	    inv:add_item("output", "engravings:art_stone1_"..i)
+                 	   	end
+					end
                 end
 			end
 		end
@@ -58,12 +60,20 @@ minetest.register_node("engravings:arts_bench", {
 		if fields ["boat"] then
 			if input == "default:sandstone_block" then
                 if input_quantity > 15 then
-			    	inv:remove_item("input", "default:sandstone_block 16")
-                    for i=1, 16 do
-				        inv:add_item("output", "engravings:art_stone2_"..i)
+					if inv:is_empty("output") then	
+			  		  	inv:remove_item("input", "default:sandstone_block 16")
+                  	  	for i=1, 16 do
+				  	      	inv:add_item("output", "engravings:art_stone2_"..i)
+						end
                     end
                 end
 			end
+		end
+
+		local function can_dig(pos, player)
+			local meta = minetest.get_meta(pos);
+			local inv = meta:get_inventory()
+			return inv:is_empty("input") and inv:is_empty("output")
 		end
 
     end,

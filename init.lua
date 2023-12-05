@@ -9,13 +9,16 @@ local pr_LoadSubFiles = function()
     dofile(s_MOD_PATH .. '/files/engravings_d.lua')
     dofile(s_MOD_PATH .. '/files/engravings_e.lua')
 	dofile(s_MOD_PATH .. '/files/engravings_p.lua')
-    dofile(s_MOD_PATH .. '/files/engravings_hes.lua') -- You don't have to disactivate this if you active the complete version, it will automatically overwrite the registered nodes
---  dofile(s_MOD_PATH .. '/files/engravings_he.lua') -- Remove the comment if you want all the Writings nodes
+    dofile(s_MOD_PATH .. '/files/engravings_hes.lua') 
     dofile(s_MOD_PATH .. '/files/arts_bench.lua')
 	dofile(s_MOD_PATH .. '/files/engraving_bench.lua')
 	dofile(s_MOD_PATH .. '/files/painting_bench.lua')
---	dofile(s_MOD_PATH .. '/files/writing_bench.lua') -- This work only if there are all the Writings blocks
 
+    if minetest.settings:get_bool("enable_writings") then
+        dofile(s_MOD_PATH .. '/files/engravings_he.lua')
+        dofile(s_MOD_PATH .. '/files/writing_bench.lua')
+    end
+    
 end
 
 pr_LoadSubFiles()

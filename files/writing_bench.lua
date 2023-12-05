@@ -7,6 +7,10 @@
 
 local S = minetest.get_translator('engravings')
 
+local img = {
+	"bird", "hand", "men", "pot", "sail", "misc1", "misc2", "misc3", "misc4", "misc5"
+}
+
 --
 -- Bench
 --
@@ -55,28 +59,60 @@ minetest.register_node("engravings:writing_bench", {
 --
 		if fields ["columns"] then
 			if input == "default:sandstone_block" then
-				inv:remove_item("input", "default:sandstone_block")
-				inv:add_item("output", "engravings:writing_base")
+				if inv:is_empty("output") then
+					inv:remove_item("input", "default:sandstone_block")
+					inv:add_item("output", "engravings:writing_base")
+				elseif output == "engravings:writing_base" then
+					inv:remove_item("input", "default:sandstone_block")
+					inv:add_item("output", "engravings:writing_base")
+				end
 			end
 		end
 
-        if fields ["bird"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone1")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_1")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
+		for u=1, 10 do
+			if fields [img[u]] then
+				if input == "engravings:writing_base" then
+					if inv:is_empty("output") then
+						inv:remove_item("input", "engravings:writing_base")
+						inv:add_item("output", "engravings:decoh1_stone"..u)
+					elseif output == "engravings:decoh1_stone1" then
+						inv:remove_item("input", "engravings:writing_base")
+						inv:add_item("output", "engravings:decoh1_stone"..u)
+					end
+				end
+	
+				for i=1, 10 do
+	
+					if input == "engravings:decoh1_stone"..i then
+						if inv:is_empty("output") then
+							inv:remove_item("input", "engravings:decoh1_stone"..i)
+							inv:add_item("output", "engravings:decoh2_stone"..i.."_"..u)
+						elseif output == "engravings:decoh1_stone"..i.."_"..u then
+							inv:remove_item("input", "engravings:decoh1_stone"..i)
+							inv:add_item("output", "engravings:decoh2_stone"..i.."_"..u)
+						end
+					end
+	
+					for o=1, 10 do			
+						if input == "engravings:decoh2_stone"..i.."_"..o then
+							if inv:is_empty("output") then
 								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_1")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_1")  
+								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..u)
+							elseif output == "engravings:decoh1_stone"..i.."_"..o.."_"..u then
+								inv:remove_item("input", "engravings:decoh1_stone"..i.."_"..o)
+								inv:add_item("output", "engravings:decoh2_stone"..i.."_"..o.."_"..u)
+							end
+						end
+	
+						for p=1, 10 do
+							if input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
+								if inv:is_empty("output") then
+									inv:remove_item("input", "engravings:decoh3_stone"..i.."_"..o.."_"..p)
+									inv:add_item("output", "engravings:decoh4_stone"..i.."_"..o.."_"..p.."_"..u)
+								elseif output == "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_"..u then
+									inv:remove_item("input", "engravings:decoh3_stone"..i.."_"..o.."_"..p)
+									inv:add_item("output", "engravings:decoh4_stone"..i.."_"..o.."_"..p.."_"..u)
+								end
 							end
 						end
 					end
@@ -84,221 +120,11 @@ minetest.register_node("engravings:writing_bench", {
 			end
 		end
 
-        if fields ["hand"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone2")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_2")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_2")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_2")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["men"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone3")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_3")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_3")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_3")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["pot"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone4")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_4")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_4")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_4")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["sail"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone5")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_5")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_5")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_5")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["misc1"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone6")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_6")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_6")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_6")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["misc2"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone7")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_7")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_7")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_7")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["misc3"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone8")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_8")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_8")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_8")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["misc4"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone9")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_9")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_9")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_9")  
-							end
-						end
-					end
-				end
-			end
-		end
-
-		if fields ["misc5"] then
-			for i=1, 10 do
-				for o=1, 10 do
-					for p=1, 10 do
-						for l=1, 10 do
-							if input == "engravings:writing_base" then
-								inv:remove_item("input", "engravings:writing_base")
-								inv:add_item("output", "engravings:decoh1_stone10")
-							elseif input == "engravings:decoh1_stone"..i then
-								inv:remove_item("input", "engravings:decoh1_stone"..i)
-								inv:add_item("output", "engravings:decoh2_stone"..i.."_10")    
-							elseif input == "engravings:decoh2_stone"..i.."_"..o then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_10")    
-							elseif input == "engravings:decoh3_stone"..i.."_"..o.."_"..p then
-								inv:remove_item("input", "engravings:decoh2_stone"..i.."_"..o.."_"..p)
-								inv:add_item("output", "engravings:decoh3_stone"..i.."_"..o.."_"..p.."_10")  
-							end
-						end
-					end
-				end
-			end
-		end
+	local function can_dig(pos, player)
+		local meta = minetest.get_meta(pos);
+		local inv = meta:get_inventory()
+		return inv:is_empty("input") and inv:is_empty("output")
+	end
 
     end,
 })

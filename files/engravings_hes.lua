@@ -2,10 +2,6 @@
 --
 -- This file register only 5 of the Writings nodes, if you want all 11111 nodes to be registered you have to activate "engravings_he.lua"
 --
--- !! You could add images but beware, with only 4 new images you will exceed the number of max nodes minetest can load (only if "engravings_he.lua is activated"): !!
--- If you want to add a new image, put it in the textures and name it "engravings_he_*" where * is a unique name, then add that 
--- name to the "img" list.
---
 -- If you want to add some of the others Writings nodes in this short list you have to register it using the scheme already present
 --
 
