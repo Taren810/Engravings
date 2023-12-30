@@ -80,6 +80,7 @@ The mod adds different egyptian themed decorative blocks. To craft them you need
 
 ## Settings
 
+- enable_engravings: if true all the nodes (except the Writings ones) will be registered. If false the mod will load only the functions.
 - enable_writings: if true it activate the complete file of Writings nodes. If false only 5 Writings nodes will be registered;
 - add_writings_inventory: if false the Writings nodes will not show in the creative inventory but you will be still able to craft them in the bench. Only work if enable_writings is true;
 
@@ -97,6 +98,10 @@ The mod adds different egyptian themed decorative blocks. To craft them you need
         - engravings_p_men.png   (slightly modified)
         - engravings_p_women.png (slightly modified) 
         - engravings_p_sun.png   (slightly modified) 
+        - engravings_d_eye.png   (slightly modified)
+        - engravings_d_men.png   (slightly modified)
+        - engravings_d_women.png (slightly modified) 
+        - engravings_d_sun.png   (slightly modified) 
     - by BlockMen , MIT License (https://mit-license.org/)
         - engravings_e_ankh.png
         - engravings_e_cactus.png
@@ -104,6 +109,9 @@ The mod adds different egyptian themed decorative blocks. To craft them you need
         - engravings_p_ankh.png     (slightly modified)
         - engravings_p_cactus.png   (slightly modified)
         - engravings_p_scarab.png   (slightly modified)
+        - engravings_d_ankh.png     (slightly modified)
+        - engravings_d_cactus.png   (slightly modified)
+        - engravings_d_scarab.png   (slightly modified)
 
 ## Other
 
