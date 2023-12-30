@@ -2,7 +2,7 @@
 --
 -- This file register the Engraving Bench node, with it you can craft the basic Engravings nodes.
 --
--- It doesn't automatically add images that you added in "engravings_e.lua".
+-- It doesn't automatically add images.
 
 local S = minetest.get_translator('engravings')
 
@@ -92,21 +92,21 @@ minetest.register_node("engravings:engraving_bench", {
 						inv:remove_item("input", "default:sandstone")
 						inv:add_item("output", "default:sandstone_block")
 					end
-				elseif input == "engravings:deco_stone"..i then
+				elseif input == "engravings:decoe_stone"..i then
 					if inv:is_empty("output") then	
-						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:remove_item("input", "engravings:decoe_stone"..i)
 						inv:add_item("output", "default:sandstone_block")
 					elseif output == "default:sandstone_block" then
-						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:remove_item("input", "engravings:decoe_stone"..i)
 						inv:add_item("output", "default:sandstone_block")
 					end
 				elseif input == "engravings:decod_stone"..i then
 					if inv:is_empty("output") then	
 						inv:remove_item("input", "engravings:decod_stone"..i)
-						inv:add_item("output", "engravings:deco_stone"..i)
-					elseif output == "engravings:deco_stone"..i then
+						inv:add_item("output", "engravings:decoe_stone"..i)
+					elseif output == "engravings:decoe_stone"..i then
 						inv:remove_item("input", "engravings:decod_stone"..i)
-						inv:add_item("output", "engravings:deco_stone"..i)
+						inv:add_item("output", "engravings:decoe_stone"..i)
 					end
 				elseif input == "engravings:decop_stone"..i then
 					if inv:is_empty("output") then
@@ -120,21 +120,21 @@ minetest.register_node("engravings:engraving_bench", {
 			end
 			for i=1, 2 do
 				for o=1, 16 do
-					if input == "engravings:art_stone"..i.."_"..o then
+					if input == "engravings:arta_stone"..i.."_"..o then
 						if inv:is_empty("output") then
-							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:remove_item("input", "engravings:arta_stone"..i.."_"..o)
 							inv:add_item("output", "default:sandstone_block")
 						elseif output == "default:sandstone_block" then
-							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:remove_item("input", "engravings:arta_stone"..i.."_"..o)
 							inv:add_item("output", "default:sandstone_block")
 						end
 					elseif input == "engravings:artd_stone"..i.."_"..o then
 						if inv:is_empty("output") then
 							inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
-							inv:add_item("output", "engravings:art_stone"..i.."_"..o)
-						elseif output == "engravings:art_stone"..i.."_"..o then
+							inv:add_item("output", "engravings:arta_stone"..i.."_"..o)
+						elseif output == "engravings:arta_stone"..i.."_"..o then
 							inv:remove_item("input", "engravings:artd_stone"..i.."_"..o)
-							inv:add_item("output", "engravings:art_stone"..i.."_"..o)
+							inv:add_item("output", "engravings:arta_stone"..i.."_"..o)
 						end
 					elseif input == "engravings:artp_stone"..i.."_"..o then
 						if inv:is_empty("output") then
@@ -154,10 +154,10 @@ minetest.register_node("engravings:engraving_bench", {
 				if input == "default:sandstone_block" then
 					if inv:is_empty("output") then	
 						inv:remove_item("input", "default:sandstone_block")
-						inv:add_item("output", "engravings:deco_stone"..i)
+						inv:add_item("output", "engravings:decoe_stone"..i)
 					elseif output == "engravings:deco_stone"..i then
 						inv:remove_item("input", "default:sandstone_block")
-						inv:add_item("output", "engravings:deco_stone"..i)
+						inv:add_item("output", "engravings:decoe_stone"..i)
 					end
 				end
 			end

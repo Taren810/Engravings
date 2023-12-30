@@ -50,7 +50,7 @@ minetest.register_node("engravings:arts_bench", {
 					if inv:is_empty("output") then	
 						inv:remove_item("input", "default:sandstone_block 16")
                   	  	for i=1, 16 do
-				    	    inv:add_item("output", "engravings:art_stone1_"..i)
+				    	    inv:add_item("output", "engravings:arta_stone1_"..i)
                  	   	end
 					end
                 end
@@ -63,7 +63,7 @@ minetest.register_node("engravings:arts_bench", {
 					if inv:is_empty("output") then	
 			  		  	inv:remove_item("input", "default:sandstone_block 16")
                   	  	for i=1, 16 do
-				  	      	inv:add_item("output", "engravings:art_stone2_"..i)
+				  	      	inv:add_item("output", "engravings:arta_stone2_"..i)
 						end
                     end
                 end

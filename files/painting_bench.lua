@@ -2,7 +2,7 @@
 --
 -- This file register the Painting Bench node, with it you can craft the painted Engravings nodes.
 --
--- It doesn't automatically add images that you added in "engravings_p.lua" but it's easy to implement (I explain it further in the file).
+-- It doesn't automatically add images that you added in "engravings_p.lua" but it's easy to implement.
 --
 
 local S = minetest.get_translator('engravings')
@@ -51,29 +51,28 @@ minetest.register_node("engravings:painting_bench", {
         if fields ["paint"] then
 		if dye == "engravings:palette" then
 			for i=1, 31 do			
-	      		if input == "engravings:deco_stone"..i then
+	      		if input == "engravings:decoe_stone"..i then
 					if inv:is_empty("output") then	
-						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:remove_item("input", "engravings:decoe_stone"..i)
 						inv:remove_item("dye", "engravings:palette")
            		    	inv:add_item("output", "engravings:decop_stone"..i)
 					elseif output == "engravings:decop_stone"..i then
-						inv:remove_item("input", "engravings:deco_stone"..i)
+						inv:remove_item("input", "engravings:decoe_stone"..i)
 						inv:remove_item("dye", "engravings:palette")
            		    	inv:add_item("output", "engravings:decop_stone"..i)
 					end
 				end
 			end
-				-- If you added new images both in the "engravings_e.lua" and in the "engravings_p.lua" you can 
 				-- scale the second "i" value by 1 for every new image. 
 			for i=1, 2 do	
 				for o=1, 16	do
-					if input == "engravings:deco_stone"..i then
+					if input == "engravings:arta_stone"..i then
 						if inv:is_empty("output") then	
-							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:remove_item("input", "engravings:arta_stone"..i.."_"..o)
 							inv:remove_item("dye", "engravings:palette")
 							inv:add_item("output", "engravings:artp_stone"..i.."_"..o)
 	  					elseif output == "engravings:artp_stone"..i.."_"..o then
-							inv:remove_item("input", "engravings:art_stone"..i.."_"..o)
+							inv:remove_item("input", "engravings:arta_stone"..i.."_"..o)
 							inv:remove_item("dye", "engravings:palette")
 							inv:add_item("output", "engravings:artp_stone"..i.."_"..o)
 						end	

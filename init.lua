@@ -22,6 +22,8 @@ end
 
 pr_LoadSubFiles()
 
+if minetest.settings:get_bool("enable_engravings") then
+
 minetest.register_craftitem("engravings:palette", {
 	inventory_image = "engravings_palette.png",
 	description = S("Engraving Palette"),
@@ -36,3 +38,5 @@ minetest.register_craft({
         "dye:yellow"
     }
 })
+
+end
